@@ -26,12 +26,12 @@ void ConfigureLed(){
 
 void ConfigureTimerA0(){
 	TA0CTL |= 0x0004;
-	TA0CTL |= 0x0112;
+	TA0CCR0 = 0x8000;
+	TA0CCTL0 &= ~0xc9e3;
+	TA0CCTL0 |= 0x3413;
+	TA0EX0 &= 0x0007;
 	TA0CTL &= ~0x02e5;
-	
-	TA0CCR0 |= 0x8000;
-	TA0CCTL0 |=0x0014;
-	TA0CCTL0 &= ~0xf9e3;
+	TA0CTL |= 0x0112; 
 }
 
 void TA0_0_IRQHandler(void){
