@@ -24,7 +24,7 @@ void ConfigureLed(){
 	P2OUT &= ~0x07;
 }
 
-Void ConfigureTimerA1(){
+void ConfigureTimerA1(){
 	TA0CTL |= 0x0004;
 	TA0CTL |= 0x0152;
 	TA0CTL &= ~0x02a5;
@@ -39,10 +39,9 @@ void TA0_0_IRQHandler(void){
 		TA0CCTL0 &= !0x0001;
 		P1OUT ^= 0x0001;
 	}
-
 }
 
-Void ConfigNVIC(){
+void ConfigNVIC(){
 	NVIC_SetPriority(TA0_0_IRQn, 2);
 	NVIC_ClearPendingIRQ(TA0_0_IRQn);
 	NVIC_EnableIRQ(TA0_0_IRQn);
@@ -50,11 +49,12 @@ Void ConfigNVIC(){
 	NVIC_SetPriority(TA0_N_IRQn, 2);
 	NVIC_ClearPendingIRQ(TA0_N_IRQn);
 	NVIC_EnableIRQ(TA0_N_IRQn);
-
 }
 
 
-
+void ConfigGlobalInterrupts(){
+	__ASM("CPSIE I");
+}
 
 
 
@@ -66,6 +66,11 @@ int main (){
 	WDR_A->CTL = WTD_A_CTL_PW | WTD_A_CTL_HOLD;
 	ConfigureLed();
 	ConfigureTimerA1();
+	ConfigGlobalInterrupts();
+
+	While(1){
+		__ASM("WFI");
+	}
 
 
 }
