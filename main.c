@@ -24,11 +24,15 @@ void ConfigureLed(){
 	P2OUT &= ~0x07;
 }
 
-void ConfigureTimerA1(){
+void ConfigureTimerA0(){
 	TA0CTL |= 0x0004;
 	TA0CTL |= 0x0152;
 	TA0CTL &= ~0x02a5;
-	TA0CCR0 |= 0xffff;
+
+	
+	TA0CCR0 |= 0x8000;
+
+
 
 
 
@@ -39,6 +43,11 @@ void TA0_0_IRQHandler(void){
 		TA0CCTL0 &= !0x0001;
 		P1OUT ^= 0x0001;
 	}
+}
+
+void TA0_N_IRQHandler(void){
+	TA0CTL &= ~0x0001;
+	P1OUT ^= 0x0001;
 }
 
 void ConfigNVIC(){
@@ -58,14 +67,10 @@ void ConfigGlobalInterrupts(){
 
 
 
-
-
-
-
 int main (){
 	WDR_A->CTL = WTD_A_CTL_PW | WTD_A_CTL_HOLD;
 	ConfigureLed();
-	ConfigureTimerA1();
+	ConfigureTimerA0();
 	ConfigGlobalInterrupts();
 
 	While(1){
