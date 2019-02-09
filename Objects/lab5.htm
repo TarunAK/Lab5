@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\lab5.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\lab5.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Feb 08 17:26:21 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Feb 08 18:58:01 2019
 <BR><P>
 <H3>Maximum Stack Usage =         16 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -52,7 +52,7 @@ Function Pointers
  <LI><a href="#[5]">MemManage_Handler</a> from startup_msp432p401r_uvision.o(.text) referenced from startup_msp432p401r_uvision.o(RESET)
  <LI><a href="#[3]">NMI_Handler</a> from startup_msp432p401r_uvision.o(.text) referenced from startup_msp432p401r_uvision.o(RESET)
  <LI><a href="#[e]">PCM_IRQHandler</a> from startup_msp432p401r_uvision.o(.text) referenced from startup_msp432p401r_uvision.o(RESET)
- <LI><a href="#[2f]">PORT1_IRQHandler</a> from main.o(i.PORT1_IRQHandler) referenced from startup_msp432p401r_uvision.o(RESET)
+ <LI><a href="#[2f]">PORT1_IRQHandler</a> from startup_msp432p401r_uvision.o(.text) referenced from startup_msp432p401r_uvision.o(RESET)
  <LI><a href="#[30]">PORT2_IRQHandler</a> from startup_msp432p401r_uvision.o(.text) referenced from startup_msp432p401r_uvision.o(RESET)
  <LI><a href="#[31]">PORT3_IRQHandler</a> from startup_msp432p401r_uvision.o(.text) referenced from startup_msp432p401r_uvision.o(RESET)
  <LI><a href="#[32]">PORT4_IRQHandler</a> from startup_msp432p401r_uvision.o(.text) referenced from startup_msp432p401r_uvision.o(RESET)
@@ -68,8 +68,8 @@ Function Pointers
  <LI><a href="#[25]">T32_INT1_IRQHandler</a> from startup_msp432p401r_uvision.o(.text) referenced from startup_msp432p401r_uvision.o(RESET)
  <LI><a href="#[26]">T32_INT2_IRQHandler</a> from startup_msp432p401r_uvision.o(.text) referenced from startup_msp432p401r_uvision.o(RESET)
  <LI><a href="#[27]">T32_INTC_IRQHandler</a> from startup_msp432p401r_uvision.o(.text) referenced from startup_msp432p401r_uvision.o(RESET)
- <LI><a href="#[14]">TA0_0_IRQHandler</a> from startup_msp432p401r_uvision.o(.text) referenced from startup_msp432p401r_uvision.o(RESET)
- <LI><a href="#[15]">TA0_N_IRQHandler</a> from main.o(i.TA0_N_IRQHandler) referenced from startup_msp432p401r_uvision.o(RESET)
+ <LI><a href="#[14]">TA0_0_IRQHandler</a> from main.o(i.TA0_0_IRQHandler) referenced from startup_msp432p401r_uvision.o(RESET)
+ <LI><a href="#[15]">TA0_N_IRQHandler</a> from startup_msp432p401r_uvision.o(.text) referenced from startup_msp432p401r_uvision.o(RESET)
  <LI><a href="#[16]">TA1_0_IRQHandler</a> from startup_msp432p401r_uvision.o(.text) referenced from startup_msp432p401r_uvision.o(RESET)
  <LI><a href="#[17]">TA1_N_IRQHandler</a> from startup_msp432p401r_uvision.o(.text) referenced from startup_msp432p401r_uvision.o(RESET)
  <LI><a href="#[18]">TA2_0_IRQHandler</a> from startup_msp432p401r_uvision.o(.text) referenced from startup_msp432p401r_uvision.o(RESET)
@@ -345,6 +345,9 @@ Global Symbols
 <P><STRONG><a name="[e]"></a>PCM_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_msp432p401r_uvision.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_msp432p401r_uvision.o(RESET)
 </UL>
+<P><STRONG><a name="[2f]"></a>PORT1_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_msp432p401r_uvision.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_msp432p401r_uvision.o(RESET)
+</UL>
 <P><STRONG><a name="[30]"></a>PORT2_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_msp432p401r_uvision.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_msp432p401r_uvision.o(RESET)
 </UL>
@@ -375,7 +378,7 @@ Global Symbols
 <P><STRONG><a name="[27]"></a>T32_INTC_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_msp432p401r_uvision.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_msp432p401r_uvision.o(RESET)
 </UL>
-<P><STRONG><a name="[14]"></a>TA0_0_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_msp432p401r_uvision.o(.text))
+<P><STRONG><a name="[15]"></a>TA0_N_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_msp432p401r_uvision.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_msp432p401r_uvision.o(RESET)
 </UL>
 <P><STRONG><a name="[16]"></a>TA1_0_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_msp432p401r_uvision.o(.text))
@@ -443,15 +446,12 @@ Global Symbols
 
 <P><STRONG><a name="[7b]"></a>__use_no_semihosting_swi</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[2f]"></a>PORT1_IRQHandler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, main.o(i.PORT1_IRQHandler))
-<BR>[Address Reference Count : 1]<UL><LI> startup_msp432p401r_uvision.o(RESET)
-</UL>
-<P><STRONG><a name="[7c]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, indicate_semi.o(.text), UNUSED)
+<P><STRONG><a name="[7c]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, indicate_semi.o(.text), UNUSED)
 
 <P><STRONG><a name="[35]"></a>SystemInit</STRONG> (Thumb, 86 bytes, Stack size 0 bytes, system_msp432p401r.o(i.SystemInit))
 <BR>[Address Reference Count : 1]<UL><LI> startup_msp432p401r_uvision.o(.text)
 </UL>
-<P><STRONG><a name="[15]"></a>TA0_N_IRQHandler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, main.o(i.TA0_N_IRQHandler))
+<P><STRONG><a name="[14]"></a>TA0_0_IRQHandler</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, main.o(i.TA0_0_IRQHandler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_msp432p401r_uvision.o(RESET)
 </UL>
 <P><STRONG><a name="[50]"></a>configGlobalInterrupts</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, main.o(i.configGlobalInterrupts))
@@ -472,7 +472,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[52]"></a>configTimer</STRONG> (Thumb, 60 bytes, Stack size 0 bytes, main.o(i.configTimer))
+<P><STRONG><a name="[52]"></a>configTimer</STRONG> (Thumb, 58 bytes, Stack size 0 bytes, main.o(i.configTimer))
 <BR><BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
