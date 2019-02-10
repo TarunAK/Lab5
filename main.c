@@ -50,7 +50,7 @@ void ConfigureTimerA1(){
 	TA1CCR0 = 0x4000;
 	//Configuring CCTL0
 	TA1CCTL0 &= ~0xcde3;
-	TA1CCTL0 |= 0x3014;
+	TA1CCTL0 |= 0x3014; 
 	//ensuring the clock isnt getting divided further
 	TA1EX0 &= ~0x0007;
 	//Ressting CCTL1
