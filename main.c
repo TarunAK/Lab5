@@ -82,10 +82,10 @@ void ChangeRGB_Led(){
 }
 
 void TA0_0_IRQHandler(void){
-	if ((TA0CCTL0 & ~(0xfffe))!= 0 ){
+	if ((TA0CCTL0 & ~(0xfffe))== 0x0001 ){
 		TA0CCTL0 &= ~0x0001;
 		P1OUT ^= 0x0001;
-	}else if((TA0IV &= 0x0002) != 0){
+	}else if((TA0IV & 0x0002) == 0x0002){
 		//Clearing the flag and truning off CCR1 for TimerA1 
 		TA0CCTL1 &= ~ 0x0011;
 		//Changing current RGB Led state and enabling TimerA_1
