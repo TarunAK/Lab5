@@ -129,8 +129,8 @@ int main (){
 	WDR_A->CTL = WTD_A_CTL_PW | WTD_A_CTL_HOLD;
 	ConfigureLed();
 	ConfigureTimerA0();
+	ConfigureTimerA1(); 
 	ConfigGlobalInterrupts();
-
 	While(1){
 		__ASM("WFI");
 	}
